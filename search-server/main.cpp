@@ -120,8 +120,9 @@ struct Query {
         }
         return query_words;
     }
-double CountIdf(const string word) {
-    return idf = log(static_cast<double>(document_count_) / static_cast<double>(word_to_document_freqs_.at(word).size()));
+double CountIdf(const string& word) const {
+    double idf = log(static_cast<double>(document_count_) / static_cast<double>(word_to_document_freqs_.at(word).size()));
+    return idf;
 }
     vector<Document> FindAllDocuments(const Query& query_words) const {
         vector<Document> matched_documents;
